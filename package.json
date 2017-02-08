@@ -1,0 +1,27 @@
+{
+  "devDependencies": {
+    "pfft-preset-react-lib": "^0.20.1"
+  },
+  "name": "r4-mini",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "styled-components": "^1.4.3"
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "pfft-partial-ava/config/setup"
+    ]
+  },
+  "scripts": {
+    "build": "react-lib build",
+    "clean": "react-lib clean",
+    "coverage": "react-lib coverage",
+    "start": "react-lib start",
+    "test": "react-lib test"
+  }
+}
