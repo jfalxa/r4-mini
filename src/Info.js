@@ -1,8 +1,9 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import Container from './Container';
-import Ticker    from './Ticker';
+import Container      from './Container';
+import Ticker         from './Ticker';
+import hoverHighlight from './style/hoverHighlight';
 
 
 const InfoContainer = styled( Container )`
@@ -26,10 +27,7 @@ const RadioLink = styled.a`
     overflow:       hidden;
     text-overflow:  ellipsis;
 
-    &:hover
-    {
-        color: #e8e8e8;
-    }
+    ${ hoverHighlight }
 
 `;
 
@@ -51,24 +49,21 @@ const TrackTitle = styled.span`
 `;
 
 
-export default function Info()
+export default function Info( { radio, track } )
 {
-    const radio = 'AXEL - LES VRAIS ALBUMS (En construction)';
-    const track = 'Moodymann - The Day We Lost The Soul / Tribute! (To The Soul We Lost)';
-
     return (
 
         <InfoContainer rows fill crossMain>
 
             <RadioLink
-                href="http://radio4000.com/918"
+                href={ `http://radio4000.com/${ radio.slug }` }
                 target="blank"
-                title={ radio }>
-                { radio }
+                title={ radio.title }>
+                { radio.title }
             </RadioLink>
 
             <TrackTicker>
-                <TrackTitle>{ track }</TrackTitle>
+                <TrackTitle>{ track.title }</TrackTitle>
             </TrackTicker>
 
         </InfoContainer>

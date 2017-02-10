@@ -5,8 +5,6 @@ import ReactPlayer from 'react-player';
 import Container from './Container';
 
 
-
-
 const VideoContainer = styled( Container )`
 
     background-color:   #000;
@@ -15,7 +13,8 @@ const VideoContainer = styled( Container )`
 
 `;
 
-export default function Video()
+
+export default function Video( { url } )
 {
     return (
 
@@ -24,7 +23,7 @@ export default function Video()
             <ReactPlayer
                 width={ 98 }
                 height={ 98 }
-                url="https://www.youtube.com/watch?v=VukKkAzyBug" />
+                url={ url } />
 
         </VideoContainer>
 

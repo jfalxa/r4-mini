@@ -1,15 +1,8 @@
 import React     from 'react';
 import styled    from 'styled-components';
-import PlayIcon  from 'react-icons/lib/md/play-arrow';
-import PauseIcon from 'react-icons/lib/md/pause';
 
-import Container from './Container';
-
-
-const ProgressContainer = styled( Container )`
-
-
-`;
+import Container      from './Container';
+import PlaybackButton from './PlaybackButton';
 
 
 const Timer = styled.span`
@@ -19,14 +12,25 @@ const Timer = styled.span`
 `;
 
 
-export default function Progress()
+function toMin( sec )
+{
+    return `0:${ sec }`;
+}
+
+
+export default function Progress( { play, track, onTogglePlayback } )
 {
     return (
 
-        <ProgressContainer columns mainSpaceBetween crossCenter>
-            <PauseIcon />
-            <Timer>0:14</Timer>
-        </ProgressContainer>
+        <Container columns mainSpaceBetween crossCenter>
+
+            <PlaybackButton
+                play={ play }
+                onTogglePlayback={ onTogglePlayback } />
+
+            <Timer>{ toMin( track.elapsed ) }</Timer>
+
+        </Container>
 
     );
 }

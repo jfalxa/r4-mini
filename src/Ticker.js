@@ -18,7 +18,7 @@ const tickerAnimation = keyframes`
 
 const Ticker = styled.div`
 
-    & > *:first-child
+    & > *
     {
         padding-left:   100%;
         animation:      ${ tickerAnimation } 10s linear infinite;

@@ -29,22 +29,28 @@ const PaddedContainer = styled( Container )`
 `;
 
 
-export default function Layout()
+export default function Player( { play, radio, track } )
 {
     return (
 
         <MainContainer inline columns>
 
-            <Video />
+            <Video
+                play={ play }
+                url={ track.url }
+                onTick={ null } />
 
             <PaddedContainer rows fill>
 
                 <Container columns fill>
-                    <Info />
-                    <Skip />
+                    <Info radio={ radio } track={ track } />
+                    <Skip onSkip={ null } />
                 </Container>
 
-                <Progress />
+                <Progress
+                    play={ play }
+                    track={ track }
+                    onJump={ null } />
 
             </PaddedContainer>
 

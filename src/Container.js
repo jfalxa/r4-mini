@@ -13,10 +13,11 @@ function justifyContent( props )
 
 function alignItems( props )
 {
-    if ( props.crossCenter )  return 'center';
-    if ( props.crossStart )   return 'flex-start';
-    if ( props.crossEnd )     return 'flex-end';
-    if ( props.crossStretch ) return 'stretch';
+    if ( props.crossCenter )   return 'center';
+    if ( props.crossStart )    return 'flex-start';
+    if ( props.crossEnd )      return 'flex-end';
+    if ( props.crossStretch )  return 'stretch';
+    if ( props.crossBaseline ) return 'baseline';
 }
 
 
