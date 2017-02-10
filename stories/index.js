@@ -1,11 +1,11 @@
 import React                 from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import MyInput from 'src/MyInput';
+import R4 from 'src/R4';
 
 
-storiesOf( 'MyInput', module )
+storiesOf( 'R4', module )
     .add( 'example', () =>
     (
-        <MyInput onChange={ action( 'Changed input value.' ) } />
+        <R4 onChange={ action( 'Changed input value.' ) } />
     ) );
