@@ -19,8 +19,8 @@ export default class R4 extends React.Component
         {
             title    : 'Moodymann - The Day We Lost The Soul / Tribute! (To The Soul We Lost)',
             url      : 'https://www.youtube.com/watch?v=VukKkAzyBug',
-            duration : 365,
-            elapsed  : 47
+            duration : 144,
+            elapsed  : 48
         };
 
         return (

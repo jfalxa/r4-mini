@@ -17,7 +17,7 @@ export default function Component( { play, onTogglePlayback } )
     return (
 
         <PlaybackIcon
-            size={ 20 }
+            size={ 25 }
             onClick={ onTogglePlayback } />
 
     );
