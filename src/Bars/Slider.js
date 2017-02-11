@@ -1,38 +1,64 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import Bar         from './Bar';
-import customStyle from './customStyle';
-
-
-const SliderHandle = styled.div`
-
-    position:           absolute;
-    top:                -${ p => ( p.size - 3 ) / 2 }px;
-    left:               calc(100% - ${ p => ( p.size - 1 ) / 2 }px);
-
-    width:              ${ p => p.size }px;
-    height:             ${ p => p.size }px;
-
-    background-color:   #808080;
-    border-radius:      ${ p => p.size / 2 }px;
-
-`;
+import cap       from './utils/cap';
+import SliderBar from './SliderBar';
 
 
 export default class Slider extends React.Component
 {
+    constructor( props )
+    {
+        super();
+
+        this.state = { value : props.value };
+    }
+
+
+    componentWillReceiveProps( { value } )
+    {
+        this.setState( { value } );
+    }
+
+
+    handleDragStart = () =>
+    {
+        this.setState( { initialValue : this.state.value } );
+    }
+
+
+    handleDrag = ( delta ) =>
+    {
+        const { initialValue }                = this.state;
+        const { min, max, toValue, onChange } = this.props;
+
+        const newValue = initialValue + toValue( delta.x );
+        const value    = cap( min, newValue, max );
+
+        onChange( value );
+        this.setState( { value } );
+    }
+
+
+    handleDragEnd = () =>
+    {
+        this.setState( { initialValue : null } );
+    }
+
+
     render()
     {
-        const { value, min, max } = this.props;
-
-        const styling = customStyle( this.props );
+        const { value }    = this.state;
+        const { min, max } = this.props;
 
         return (
 
-            <Bar to={ value } min={ min } max={ max } { ...styling }>
-                <SliderHandle size={ 11 } />
-            </Bar>
+            <SliderBar
+                value={ value }
+                min={ min }
+                max={ max }
+                onDragStart={ this.handleDragStart }
+                onDrag={ this.handleDrag }
+                onDragEnd={ this.handleDragEnd } />
 
         );
     }

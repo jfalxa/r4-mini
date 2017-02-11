@@ -35,8 +35,8 @@ export default function Progress( { play, track, onTogglePlayback } )
                 play={ play }
                 onTogglePlayback={ onTogglePlayback } />
 
-            <StyledBars max={ track.duration }>
-                <Slider value={ track.elapsed } onChange={ null } />
+            <StyledBars max={ track.duration } onClick={ () => {} }>
+                <Slider value={ track.elapsed } onChange={ () => {} } />
             </StyledBars>
 
             <Timer>{ toMin( track.elapsed ) }</Timer>

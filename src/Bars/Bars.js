@@ -1,7 +1,6 @@
-import React  from 'react';
-import styled from 'styled-components';
-
-import customStyle from './customStyle';
+import React           from 'react';
+import styled          from 'styled-components';
+import { findDOMNode } from 'react-dom';
 
 
 const StyledBars = styled.div`
@@ -13,28 +12,56 @@ const StyledBars = styled.div`
 
     background-color:   #FFF;
 
+    &:before
+    {
+        content:    "";
+        position:   absolute;
+        width:      100%;
+        height:     100%;
+        padding:    5px;
+        top:        -5px;
+    }
+
 `;
 
 
 
 export default class Bars extends React.Component
 {
+    static defaultProps =
+    {
+        min : 0,
+        max : 100
+    }
+
+
+    toValue = ( px ) =>
+    {
+        const { min, max } = this.props;
+        const { width }    = findDOMNode( this ).getBoundingClientRect();
+
+        // convert the pixel length into a value for the current min/max
+        return ( px * ( max - min ) / width );
+    }
+
+
     renderBars()
     {
         const { min, max, children } = this.props;
+        const toValue                = this.toValue;
 
-        return React.Children.map( children,
-            ( child, key ) => React.cloneElement( child, { key, min, max } ) );
+        return React.Children.map( children, ( child, key ) =>
+        (
+            React.cloneElement( child, { key, min, max, toValue } )
+        ) );
     }
 
 
     render()
     {
-        const styling = customStyle( this.props );
-
         return (
 
-            <StyledBars { ...styling }>
+            <StyledBars { ...this.props }>
                 { this.renderBars() }
             </StyledBars>
 

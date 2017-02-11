@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import toPercent from './toPercent';
+import toPercent from './utils/toPercent';
 
 
 const Bar = styled.div`
@@ -14,16 +14,13 @@ const Bar = styled.div`
 
     background-color:   #808080;
 
-
 `;
 
 
 Bar.defaultProps =
 {
     from : 0,
-    to   : 0,
-    min  : 0,
-    max  : 100
+    to   : 0
 };
 
 
