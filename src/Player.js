@@ -38,7 +38,8 @@ export default function Player( { play, radio, track } )
             <Video
                 play={ play }
                 url={ track.url }
-                onTick={ null } />
+                onTick={ null }
+                onTogglePlayback={ null } />
 
             <PaddedContainer rows fill>
 
@@ -50,7 +51,8 @@ export default function Player( { play, radio, track } )
                 <Progress
                     play={ play }
                     track={ track }
-                    onJump={ null } />
+                    onJump={ null }
+                    onTogglePlayback={ null } />
 
             </PaddedContainer>
 

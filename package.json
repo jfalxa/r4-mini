@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.4",
+    "react-bar-tools": "^1.0.6",
     "react-icons": "^2.2.3",
     "react-player": "^0.14.1",
     "styled-components": "^1.4.3"

@@ -1,9 +1,9 @@
-import React     from 'react';
-import styled    from 'styled-components';
+import React  from 'react';
+import styled from 'styled-components';
 
-import Container        from './Container';
-import PlaybackButton   from './PlaybackButton';
-import { Bars, Slider } from './Bars';
+import Container      from './Container';
+import TrackSlider    from './TrackSlider';
+import PlaybackButton from './PlaybackButton';
 
 
 const Timer = styled.span`
@@ -11,18 +11,6 @@ const Timer = styled.span`
     font-size: 12px;
 
 `;
-
-const StyledBars = styled( Bars )`
-
-    margin: 0 10px;
-
-`;
-
-
-function toMin( sec )
-{
-    return `0:${ sec }`;
-}
 
 
 export default function Progress( { play, track, onTogglePlayback } )
@@ -35,11 +23,12 @@ export default function Progress( { play, track, onTogglePlayback } )
                 play={ play }
                 onTogglePlayback={ onTogglePlayback } />
 
-            <StyledBars max={ track.duration } onClick={ () => {} }>
-                <Slider value={ track.elapsed } onChange={ value => console.log( value ) } />
-            </StyledBars>
+            <TrackSlider
+                elapsed={ track.elapsed }
+                duration={ track.duration }
+                onChange={ value => console.log( value ) }/>
 
-            <Timer>{ toMin( track.elapsed ) }</Timer>
+            <Timer>{ track.elapsed }</Timer>
 
         </Container>
 
