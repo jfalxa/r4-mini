@@ -41,7 +41,7 @@ export default class Bars extends React.Component
         const { width }    = findDOMNode( this ).getBoundingClientRect();
 
         // convert the pixel length into a value for the current min/max
-        return ( px * ( max - min ) / width );
+        return Math.round( px * ( max - min ) / width );
     }
 
 

@@ -8,7 +8,7 @@ const StyledHandle = styled.div`
 
     position:           absolute;
     top:                -${ p => ( p.size - 3 ) / 2 }px;
-    left:               calc(100% - ${ p => ( p.size - 1 ) / 2 }px);
+    left:               calc(${ p => p.min ? 0 : '100%' } - ${ p => ( p.size - 1 ) / 2 }px);
 
     width:              ${ p => p.size }px;
     height:             ${ p => p.size }px;
