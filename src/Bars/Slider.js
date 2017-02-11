@@ -1,11 +1,18 @@
 import React from 'react';
 
 import cap       from './utils/cap';
+import noop      from './utils/noop';
 import SliderBar from './SliderBar';
 
 
 export default class Slider extends React.Component
 {
+    static defaultProps =
+    {
+        onChange : noop
+    }
+
+
     constructor( props )
     {
         super();
@@ -52,7 +59,7 @@ export default class Slider extends React.Component
 
         return (
 
-            <SliderBar
+            <SliderBar { ...this.props }
                 value={ value }
                 min={ min }
                 max={ max }
