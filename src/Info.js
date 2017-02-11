@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Container      from './Container';
 import Ticker         from './Ticker';
 import hoverHighlight from './style/hoverHighlight';
+import { th }         from './style/theme';
 
 
 const InfoContainer = styled( Container )`
@@ -13,7 +14,6 @@ const InfoContainer = styled( Container )`
     margin-right:   5px;
     margin-bottom:  5px;
 
-    overflow:       hidden;
     white-space:    nowrap;
 
 `;
@@ -21,7 +21,7 @@ const InfoContainer = styled( Container )`
 
 const RadioLink = styled.a`
 
-    color:          #fdfff5;
+    color:          ${ th( 'primaryText' ) };
     font-size:      17px;
     font-weight:    bold;
     overflow:       hidden;

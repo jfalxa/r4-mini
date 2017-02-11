@@ -18,6 +18,8 @@ const tickerAnimation = keyframes`
 
 const Ticker = styled.div`
 
+    overflow:   hidden;
+
     & > *
     {
         padding-left:   100%;

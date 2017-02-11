@@ -1,5 +1,7 @@
 import { css } from 'styled-components';
 
+import { th } from './theme';
+
 
 export default function hoverHighlight()
 {
@@ -9,7 +11,7 @@ export default function hoverHighlight()
 
         &:hover
         {
-            color: #e8e8e8;
+            color: ${ th( 'highlightText' ) };
         }
 
     `;

@@ -8,7 +8,10 @@ import PlaybackButton from './PlaybackButton';
 
 const Timer = styled.span`
 
-    font-size: 12px;
+    flex-shrink:    0;
+    width:          40px;
+    font-size:      11px;
+    text-align:     center;
 
 `;
 
@@ -28,7 +31,7 @@ export default function Progress( { play, track, onTogglePlayback } )
                 duration={ track.duration }
                 onChange={ value => console.log( value ) }/>
 
-            <Timer>{ track.elapsed }</Timer>
+            <Timer>{ '43:' + track.elapsed }</Timer>
 
         </Container>
 
