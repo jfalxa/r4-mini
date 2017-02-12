@@ -1,13 +1,12 @@
 import React                     from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import Container     from './Container';
 import theme, { th } from './style/theme';
-
-import Info     from './Info';
-import Skip     from './Skip';
-import Video    from './Video';
-import Progress from './Progress';
+import Container     from './Container';
+import Info          from './Info';
+import Skip          from './Skip';
+import Video         from './Video';
+import Progress      from './Progress';
 
 
 const MainContainer = styled( Container )`
@@ -40,8 +39,10 @@ export default function Player( { play, radio, track } )
 
                 <Video
                     play={ play }
-                    url={ track.url }
-                    onTick={ null }
+                    track={ track }
+                    onError={ null }
+                    onProgress={ progress => console.log( progress ) }
+                    onDuration={ duration => console.log( duration ) }
                     onTogglePlayback={ null } />
 
                 <PaddedContainer rows fill>

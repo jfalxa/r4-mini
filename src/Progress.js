@@ -1,5 +1,6 @@
 import React  from 'react';
 import styled from 'styled-components';
+import format from 'format-duration';
 
 import Container      from './Container';
 import TrackSlider    from './TrackSlider';
@@ -29,9 +30,9 @@ export default function Progress( { play, track, onTogglePlayback } )
             <TrackSlider
                 elapsed={ track.elapsed }
                 duration={ track.duration }
-                onChange={ value => console.log( value ) }/>
+                onChange={ value => console.log( value ) } />
 
-            <Timer>{ '43:' + track.elapsed }</Timer>
+            <Timer>{ format( track.elapsed * 1000 ) }</Timer>
 
         </Container>
 

@@ -8,8 +8,9 @@
   "repository": {},
   "license": "MIT",
   "dependencies": {
+    "format-duration": "^1.0.0",
     "lodash": "^4.17.4",
-    "react-bar-tools": "^1.1.0",
+    "react-bar-tools": "^1.1.1",
     "react-icons": "^2.2.3",
     "react-player": "^0.14.1",
     "styled-components": "^1.4.3"

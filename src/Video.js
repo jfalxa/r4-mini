@@ -14,7 +14,7 @@ const VideoContainer = styled( Container )`
 `;
 
 
-export default function Video( { url } )
+export default function Video( { play, track, onError, onDuration, onProgress } )
 {
     return (
 
@@ -23,7 +23,11 @@ export default function Video( { url } )
             <ReactPlayer
                 width={ 98 }
                 height={ 98 }
-                url={ url } />
+                playing={ play }
+                url={ track.url }
+                onError={ onError }
+                onDuration={ onDuration }
+                onProgress={ onProgress } />
 
         </VideoContainer>
 
