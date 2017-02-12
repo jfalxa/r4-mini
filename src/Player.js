@@ -29,8 +29,11 @@ const PaddedContainer = styled( Container )`
 `;
 
 
-export default function Player( { play, radio, track } )
+export default function Player( props )
 {
+    const { play, radio, track } = props;
+    const { onTogglePlayback, onSkip, onProgress, onDuration, onEnd, onJump } = props;
+
     return (
 
         <ThemeProvider theme={ theme }>
@@ -40,23 +43,24 @@ export default function Player( { play, radio, track } )
                 <Video
                     play={ play }
                     track={ track }
-                    onError={ null }
-                    onProgress={ progress => console.log( progress ) }
-                    onDuration={ duration => console.log( duration ) }
-                    onTogglePlayback={ null } />
+                    onError={ onSkip }
+                    onDuration={ onDuration }
+                    onProgress={ onProgress }
+                    onEnd={ onEnd }
+                    onTogglePlayback={ onTogglePlayback } />
 
                 <PaddedContainer rows fill>
 
                     <Container columns fill>
                         <Info radio={ radio } track={ track } />
-                        <Skip onSkip={ null } />
+                        <Skip onSkip={ onSkip } />
                     </Container>
 
                     <Progress
                         play={ play }
                         track={ track }
-                        onJump={ null }
-                        onTogglePlayback={ null } />
+                        onJump={ onJump }
+                        onTogglePlayback={ onTogglePlayback } />
 
                 </PaddedContainer>
 

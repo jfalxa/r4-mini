@@ -17,7 +17,7 @@ const Timer = styled.span`
 `;
 
 
-export default function Progress( { play, track, onTogglePlayback } )
+export default function Progress( { play, track, onJump, onTogglePlayback } )
 {
     return (
 
@@ -30,7 +30,7 @@ export default function Progress( { play, track, onTogglePlayback } )
             <TrackSlider
                 elapsed={ track.elapsed }
                 duration={ track.duration }
-                onChange={ value => console.log( value ) } />
+                onChange={ onJump } />
 
             <Timer>{ format( track.elapsed * 1000 ) }</Timer>
 

@@ -14,22 +14,53 @@ const VideoContainer = styled( Container )`
 `;
 
 
-export default function Video( { play, track, onError, onDuration, onProgress } )
+export default class Video extends React.Component
 {
-    return (
+    componentWillReceiveProps( nextProps )
+    {
+        const { track }           = this.props;
+        const { track:nextTrack } = nextProps;
 
-        <VideoContainer rows mainCenter crossCenter>
+        // @TODO build something more reliable to know what to do in which case
+        // - don't base the decision on the difference between props and nextProps
+        // - eventually separate youtube elapsed time from the players
 
-            <ReactPlayer
-                width={ 98 }
-                height={ 98 }
-                playing={ play }
-                url={ track.url }
-                onError={ onError }
-                onDuration={ onDuration }
-                onProgress={ onProgress } />
+        if ( !nextProps.play && this.props.play && ( nextTrack.elapsed === 0 ) )
+        {
+            return;
+        }
 
-        </VideoContainer>
+        if ( Math.abs( nextTrack.elapsed - track.elapsed ) > 2 )
+        {
+            this.player.seekTo( nextTrack.elapsed / nextTrack.duration );
+        }
+    }
 
-    );
+
+    render()
+    {
+        const { play, track } = this.props;
+        const { onError, onDuration, onProgress, onEnd, onTogglePlayback } = this.props;
+
+        return (
+
+            <VideoContainer rows mainCenter crossCenter>
+
+                <ReactPlayer
+                    ref={ player => ( this.player = player ) }
+                    width={ 98 }
+                    height={ 98 }
+                    playing={ play }
+                    url={ track.url }
+                    onError={ onError }
+                    onDuration={ onDuration }
+                    onProgress={ onProgress }
+                    onEnded={ onEnd }
+                    onPlay={ () => onTogglePlayback( true ) }
+                    onPause={ () => onTogglePlayback( false ) } />
+
+            </VideoContainer>
+
+        );
+    }
 }
