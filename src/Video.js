@@ -20,6 +20,10 @@ const VideoContainer = styled( Container )`
 export default class Video extends React.Component
 {
     // this is shiiiiiiiiiit
+    // Right now it's the only way I found to move to a certain point in the
+    // video. To do that, it detects if the new specified elapsed time is far
+    // from the previously rendered one. If so, it'll force the player to seek
+    // directly this new time.
     componentWillReceiveProps( nextProps )
     {
         const { track }           = this.props;

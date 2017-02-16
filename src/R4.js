@@ -3,7 +3,7 @@ import update from 'immutability-helper';
 
 import Player from './Player';
 
-
+// Player controller component
 export default class R4 extends React.Component
 {
     state =

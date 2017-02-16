@@ -28,6 +28,7 @@ const PaddedContainer = styled( Container )`
 `;
 
 
+// Player layout component
 export default function Player( props )
 {
     const { play, radio, track } = props;

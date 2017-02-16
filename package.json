@@ -4,7 +4,7 @@
   },
   "name": "r4-mini",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/R4.js",
   "repository": {},
   "license": "MIT",
   "dependencies": {
@@ -23,6 +23,7 @@
     ]
   },
   "scripts": {
+    "prepublish": "npm run build",
     "build": "react-lib build",
     "clean": "react-lib clean",
     "coverage": "react-lib coverage",

@@ -10,7 +10,7 @@ const StyledPlayIcon  = styled( PlayIcon )`${ hoverHighlight }`;
 const StyledPauseIcon = styled( PauseIcon )`${ hoverHighlight }`;
 
 
-export default function Component( { play, onTogglePlayback } )
+export default function PlaybackButton( { play, onTogglePlayback } )
 {
     const PlaybackIcon = play ? StyledPauseIcon : StyledPlayIcon;
 

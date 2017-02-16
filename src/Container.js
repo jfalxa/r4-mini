@@ -21,6 +21,8 @@ function alignItems( props )
 }
 
 
+// Flexbox container for quick layouting.
+// Configurable with props and extendable with custom styles.
 const Container = styled.div`
 
     display:            ${ p => p.inline ? 'inline-flex' : 'flex' };
