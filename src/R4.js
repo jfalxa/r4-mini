@@ -57,7 +57,7 @@ export default class R4 extends React.Component
             return;
         }
 
-        const elapsed  = parseInt( progress.played * this.state.track.duration, 10 );
+        const elapsed  = Math.ceil( progress.played * this.state.track.duration );
         const state    = update( this.state, { track : { $merge : { elapsed } } } );
 
         this.setState( state );
