@@ -13,9 +13,7 @@ export default function Skip( { onSkip } )
 {
     return (
 
-        <Container rows>
             <StyledSkipIcon size={ 40 } onClick={ onSkip } />
-        </Container>
 
     );
 }

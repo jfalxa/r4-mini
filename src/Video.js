@@ -5,17 +5,21 @@ import ReactPlayer from 'react-player';
 import Container from './Container';
 
 
+const VIDEO_SIZE = 100;
+
+
 const VideoContainer = styled( Container )`
 
     background-color:   #000;
-    width:              100px;
-    height:             100px;
+    width:              ${ VIDEO_SIZE + 2 }px;
+    height:             ${ VIDEO_SIZE + 2 }px;
 
 `;
 
 
 export default class Video extends React.Component
 {
+    // this is shiiiiiiiiiit
     componentWillReceiveProps( nextProps )
     {
         const { track }           = this.props;
@@ -23,7 +27,7 @@ export default class Video extends React.Component
 
         // @TODO build something more reliable to know what to do in which case
         // - don't base the decision on the difference between props and nextProps
-        // - eventually separate youtube elapsed time from the players
+        // - eventually separate youtube elapsed time from the player's
 
         if ( !nextProps.play && this.props.play && ( nextTrack.elapsed === 0 ) )
         {
@@ -48,8 +52,8 @@ export default class Video extends React.Component
 
                 <ReactPlayer
                     ref={ player => ( this.player = player ) }
-                    width={ 98 }
-                    height={ 98 }
+                    width={ VIDEO_SIZE }
+                    height={ VIDEO_SIZE }
                     playing={ play }
                     url={ track.url }
                     onError={ onError }

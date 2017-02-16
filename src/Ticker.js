@@ -28,5 +28,5 @@ const Ticker = styled.div`
 
 `;
 
-
+// Pure CSS news ticker component
 export default Ticker;

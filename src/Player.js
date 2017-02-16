@@ -6,18 +6,17 @@ import Container     from './Container';
 import Info          from './Info';
 import Skip          from './Skip';
 import Video         from './Video';
-import Progress      from './Progress';
+import TrackControls from './TrackControls';
 
 
 const MainContainer = styled( Container )`
 
-    height:             102px;
     color:              ${ th( 'primaryText' ) };
     background-color:   ${ th( 'primaryBackground' ) };
     border:             1px solid ${ th( 'primaryBackground' ) };
     border-radius:      5px;
-    overflow:           hidden;
     box-shadow:         2px 2px 2px ${ th( 'shadow' ) };
+    overflow:           hidden;
 
 `;
 
@@ -56,7 +55,7 @@ export default function Player( props )
                         <Skip onSkip={ onSkip } />
                     </Container>
 
-                    <Progress
+                    <TrackControls
                         play={ play }
                         track={ track }
                         onJump={ onJump }

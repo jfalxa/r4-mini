@@ -17,7 +17,7 @@ const Timer = styled.span`
 `;
 
 
-export default function Progress( { play, track, onJump, onTogglePlayback } )
+export default function TrackControls( { play, track, onJump, onTogglePlayback } )
 {
     return (
 

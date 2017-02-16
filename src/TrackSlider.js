@@ -52,6 +52,7 @@ const StyledHandle = styled( Handle )`
 `;
 
 
+// Custom slider component
 export default function TrackSlider( { elapsed, duration, onChange } )
 {
     return (
