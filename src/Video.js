@@ -4,18 +4,13 @@ import ReactPlayer from 'react-player';
 
 import Container from './Container';
 
-
-const VIDEO_SIZE = 100;
-
+const VIDEO_SIZE = 130;
 
 const VideoContainer = styled( Container )`
-
     background-color:   #000;
-    width:              ${ VIDEO_SIZE + 2 }px;
-    height:             ${ VIDEO_SIZE + 2 }px;
-
+    width:              ${ VIDEO_SIZE }px;
+    height:             ${ VIDEO_SIZE * (9/16) }px;
 `;
-
 
 export default class Video extends React.Component
 {

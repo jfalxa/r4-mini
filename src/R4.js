@@ -19,6 +19,7 @@ export default class R4 extends React.Component
         track :
         {
             title    : 'Moodymann - The Day We Lost The Soul / Tribute! (To The Soul We Lost)',
+						body: `Here's the track description #nicetrack`,
             url      : 'https://www.youtube.com/watch?v=VukKkAzyBug',
             duration : 0,
             elapsed  : 0

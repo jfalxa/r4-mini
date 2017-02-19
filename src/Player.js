@@ -17,6 +17,7 @@ const MainContainer = styled( Container )`
     border-radius:      5px;
     box-shadow:         2px 2px 2px ${ th( 'shadow' ) };
     overflow:           hidden;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 `;
 

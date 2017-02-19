@@ -44,10 +44,15 @@ const TrackTicker = styled( Ticker )`
 const TrackTitle = styled.span`
 
     display:    inline-flex;
-    font-size:  14px;
+    font-size:  13px;
 
 `;
 
+const TrackBody = styled.span`
+    display:    inline-flex;
+    font-size:  13px;
+		font-style: italic;
+`;
 
 export default function Info( { radio, track } )
 {
@@ -64,6 +69,9 @@ export default function Info( { radio, track } )
 
             <TrackTicker>
                 <TrackTitle>{ track.title }</TrackTitle>
+            </TrackTicker>
+            <TrackTicker>
+                <TrackBody>{ track.body }</TrackBody>
             </TrackTicker>
 
         </InfoContainer>
